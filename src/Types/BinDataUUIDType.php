@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace MrSpoocy\Doctrine\ODM\MongoDB\Types;
 
 use Doctrine\ODM\MongoDB\Types\BinDataType;
-use Doctrine\ODM\MongoDB\Types\ClosureToPHP;
+use Doctrine\ODM\MongoDB\Types\Type;
 use LogicException;
 use MongoBinData;
 use MongoDB\BSON\Binary;
@@ -24,8 +24,6 @@ use function strlen;
 
 class BinDataUUIDType extends BinDataType
 {
-    use ClosureToPHP;
-
     /**
      * @param mixed $value
      *
@@ -97,8 +95,17 @@ class BinDataUUIDType extends BinDataType
         }
     }
 
-    public function closureToMongo()
+    public function closureToMongo() : string
     {
-        throw new LogicException(sprintf('"%s" hat die Methode "%s" nicht Implementiert', self::class, __METHOD__));
+        return sprintf('$return = $value !== null ? new \MongoDB\BSON\Binary($value, %d) : null;', $this->binDataType);
+    }
+
+    public function closureToPHP() : string
+    {
+        return sprintf('
+            $type = \%s::getType($typeIdentifier);
+            $return = $type->convertToPHPValue($value);', Type::class);
+
+        return '$return = $value !== null ? ($value instanceof \MongoDB\BSON\Binary ? $value->getData() : $value) : null;';
     }
 }
