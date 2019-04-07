@@ -1,0 +1,44 @@
+{
+  "name": "mrspoocy/uuid-mongodb",
+  "description": "Allow the use of a ramsey/uuid UUID as Doctrine-MongoDB field type.",
+  "type": "library",
+  "keywords": [
+    "uuid",
+    "identifier",
+    "guid",
+    "doctrine",
+    "mongo",
+    "mongodb"
+  ],
+  "homepage": "https://github.com/MrSpoocy/uuid-mongodb",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Manuel",
+      "email": "info@mrspoocy.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/MrSpoocy/uuid-mongodb/issues",
+    "source": "https://github.com/MrSpoocy/uuid-mongodb"
+  },
+  "require": {
+    "php": "^5.5 || ^7.0",
+    "doctrine/mongodb-odm": "^1.2",
+    "ramsey/uuid": "^3.0"
+  },
+  "require-dev": {
+
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "ext-mongo": "1.6.16"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "MrSpoocy\\Doctrine\\ODM\\MongoDB\\": "src/"
+    }
+  }
+}
