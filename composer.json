@@ -23,7 +23,7 @@
     "source": "https://github.com/MrSpoocy/uuid-mongodb"
   },
   "require": {
-    "php": "^5.5 || ^7.0",
+    "php": "^7.0",
     "doctrine/mongodb-odm": "^1.2 || dev-master",
     "ramsey/uuid": "^3.0"
   },
