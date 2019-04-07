@@ -1,0 +1,22 @@
+###>  IntelliJ project files  ###
+.idea
+*.iml
+out
+gen
+###<  IntelliJ project files  ###
+
+###> composer ###
+vendor/
+composer.lock
+###< composer ###
+
+###> PHPUnit ###
+.phpunit.result.cache
+###< PHPUnit ###
+
+###> MacOS ###
+.DS_store
+###< MacOS ###
+
+.phpcs-cache
+tests/scripts/
